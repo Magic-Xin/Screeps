@@ -13,3 +13,7 @@
 3. 进一步降低CPU，平均占用 2 CPU，为即将开始的元素矿业做准备
 
 ### 过往版本链接：
+
+[V1.0](https://github.com/Magic-Xin/Screeps/tree/master/v1.0)
+
+[V2.0](https://github.com/Magic-Xin/Screeps/tree/master/v2.0)
