@@ -3,8 +3,6 @@ var roleUHarvester = require('role.uharvester');
 var roleHTransfer = require('role.htransfer');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
-var roleMHarvester = require('role.mharvester')
-var roleMTransfer = require('role.mtransfer')
 
 module.exports.loop = function () {
 
@@ -23,8 +21,6 @@ module.exports.loop = function () {
             var htransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'htransfer')
             var utransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'utransfer')
             var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
-            var mharvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'mharvester')
-            var mtransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'mtransfer')
             var CStarget = Game.spawns['Spawn1'].room.find(FIND_CONSTRUCTION_SITES);
 
             if(harvesters.length < 1) {
@@ -53,20 +49,6 @@ module.exports.loop = function () {
                 console.log('Spawning new upgrader: ' + UnewName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], UnewName,
                     {memory: {role: 'upgrader'}});
-            }
-
-            else if(mharvesters.length < 1) {
-                var MHnewName = 'Harvester' + Game.time;
-                console.log('Spawning new mharvester: ' + MHnewName);
-                Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,MOVE,MOVE,MOVE,MOVE,MOVE], MHnewName, 
-                    {memory: {role: 'mharvester'}});
-            }
-
-            else if(mtransfers.length < 1) {
-                var MTnewName = 'HTransfer' + Game.time;
-                console.log('Spawning new mtransfer: ' + MTnewName);
-                Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], HTnewName,
-                    {memory: {role: 'mhtransfer'}});
             }
 
             else if(CStarget.length && builders.length < 2) {
@@ -103,12 +85,6 @@ module.exports.loop = function () {
         }
         if(creep.memory.role == 'builder') {
             roleBuilder.run(creep);
-        }
-        if(creep.memory.role == 'mharvester') {
-            roleMHarvester.run(creep);
-        }
-        if(creep.memory.role == 'mtransfer') {
-            roleMTransfer.run(creep);
         }
     } //creeps分工
     

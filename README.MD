@@ -1,19 +1,25 @@
-# Screeps 个人代码归档V2.5（进行中）
+# Screeps 个人代码归档V3.0（进行中）
 
-## 合理远程科技
+## 开启元素矿业
 
-### 对比V2.0：
+### 对比V2.5：
 
-1. 使用Link代替了utransfer，增加了工作效率，减少了Road和Container的损耗
+1. 新增了 MHarvester 和 MTransfer，负责Mineral的开采和运输、
 
-    Controller旁的Container已拆除
+2. 元素矿默认存放在 Storage 中
 
-2. 为两个harvester增加的Container存储情况判断的代码，避免资源开采过度，造成浪费
+### TODO
 
-3. 进一步降低CPU，平均占用 2 CPU，为即将开始的元素矿业做准备
+1. Terminal模块，负责市场交易
+
+2. Lab模块，负责矿物合成
+
+3. 开启第四个Link后，多余Energy矿存入Storge中
 
 ### 过往版本链接：
 
 [V1.0](https://github.com/Magic-Xin/Screeps/tree/master/v1.0)
 
 [V2.0](https://github.com/Magic-Xin/Screeps/tree/master/v2.0)
+
+[V2.5](https://github.com/Magic-Xin/Screeps/tree/master/v2.5)
