@@ -21,7 +21,6 @@ module.exports.loop = function () {
             var uharvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'uharvester');
             var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
             var htransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'htransfer')
-            var utransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'utransfer')
             var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
             var mharvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'mharvester')
             var mtransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'mtransfer')
@@ -56,17 +55,17 @@ module.exports.loop = function () {
             }
 
             else if(mharvesters.length < 1) {
-                var MHnewName = 'Harvester' + Game.time;
+                var MHnewName = 'MHarvester' + Game.time;
                 console.log('Spawning new mharvester: ' + MHnewName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,MOVE,MOVE,MOVE,MOVE,MOVE], MHnewName, 
                     {memory: {role: 'mharvester'}});
             }
-
+            
             else if(mtransfers.length < 1) {
-                var MTnewName = 'HTransfer' + Game.time;
+                var MTnewName = 'MTransfer' + Game.time;
                 console.log('Spawning new mtransfer: ' + MTnewName);
-                Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], HTnewName,
-                    {memory: {role: 'mhtransfer'}});
+                Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], MTnewName,
+                    {memory: {role: 'mtransfer'}});
             }
 
             else if(CStarget.length && builders.length < 2) {

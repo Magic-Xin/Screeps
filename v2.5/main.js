@@ -19,7 +19,6 @@ module.exports.loop = function () {
             var uharvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'uharvester');
             var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
             var htransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'htransfer')
-            var utransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'utransfer')
             var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
             var CStarget = Game.spawns['Spawn1'].room.find(FIND_CONSTRUCTION_SITES);
 
