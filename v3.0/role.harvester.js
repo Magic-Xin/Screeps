@@ -1,16 +1,16 @@
 var roleHarvester = {
 
     run: function(creep) {
-        const source = Game.getObjectById('5bbcafd29099fc012e63b3e2')
-        const container = Game.getObjectById('5e43075b0d2fcf1e58db2faf');
+        const source = Game.getObjectById('5bbcafd29099fc012e63b3e3')
+        const container = Game.getObjectById('5e4300d9a65a34014e3984ce');
 
-        if(creep.pos.isEqualTo(20, 35)){
+        if(creep.pos.isEqualTo(6, 37)){
             if(container.store.getFreeCapacity() > 0){
                 creep.harvest(source);
             }
         }
         else {
-            creep.moveTo(20, 35);
+            creep.moveTo(6, 37);
         }
 	}
 };

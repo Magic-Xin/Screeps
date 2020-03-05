@@ -19,7 +19,7 @@ var roleBuilder = {
         else {
             container = containerMain;
         }
-
+		
 	    if(creep.memory.building) {
 			var targets = creep.room.find(FIND_MY_CONSTRUCTION_SITES);
             if(targets.length) {
@@ -30,7 +30,7 @@ var roleBuilder = {
 			else {
 				var Rtargets = creep.room.find(FIND_STRUCTURES, {
 					filter: (structure) => {
-						return structure.structureType != STRUCTURE_WALL &&
+						return structure.structureType != STRUCTURE_WALL && 
 								// structureType != STRUCTURE_RAMPART &&
 								structure.structureType != STRUCTURE_ROAD &&
                                 structure.hits < structure.hitsMax;

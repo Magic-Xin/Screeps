@@ -2,8 +2,8 @@ var roleHTransfer = {
 
     run: function(creep) {
 
-        var containerMain = Game.getObjectById('5e43075b0d2fcf1e58db2faf');
-        var containerBack = Game.getObjectById('5e4300d9a65a34014e3984ce');
+        var containerMain = Game.getObjectById('5e4300d9a65a34014e3984ce');
+        var containerBack = Game.getObjectById('5e43075b0d2fcf1e58db2faf');
         var container;
         if(containerMain.store[RESOURCE_ENERGY] == 0){
             container = containerBack;
@@ -21,7 +21,7 @@ var roleHTransfer = {
                 var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_SPAWN ||
-                                structure.structureType == STRUCTURE_EXTENSION) &&
+                                structure.structureType == STRUCTURE_EXTENSION) && 
                                 structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
                     }
                 });
@@ -34,7 +34,7 @@ var roleHTransfer = {
             else {
                 var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
-                        return structure.structureType == STRUCTURE_TOWER &&
+                        return structure.structureType == STRUCTURE_TOWER && 
                                 structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
                     }
                 });

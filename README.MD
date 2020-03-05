@@ -1,12 +1,12 @@
-# Screeps 个人代码归档V3.0（进行中）
+# Screeps 个人代码归档V3.5（进行中）
 
 ## 开启元素矿业
 
-### 对比V2.5：
+### 对比V3.0：
 
-1. 新增了 MHarvester 和 MTransfer，负责Mineral的开采和运输、
+1. 模块化Spawn和Tower，精简main.js
 
-2. 元素矿默认存放在 Storage 中
+2. Spawn分工，UHarvester与Harvester矿床互换
 
 ### TODO
 
@@ -14,7 +14,9 @@
 
 2. Lab模块，负责矿物合成
 
-3. 开启第四个Link后，多余Energy矿存入Storge中
+3. Tombstone和掉落RESOURCE回收
+
+4. 进一步模块化Clean和Link
 
 ### 过往版本链接：
 
@@ -23,3 +25,5 @@
 [V2.0](https://github.com/Magic-Xin/Screeps/tree/master/v2.0)
 
 [V2.5](https://github.com/Magic-Xin/Screeps/tree/master/v2.5)
+
+[V3.0](https://github.com/Magic-Xin/Screeps/tree/master/v3.0)
