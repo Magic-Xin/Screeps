@@ -1,8 +1,8 @@
-var roleUHarvester = {
+let roleUHarvester = {
 
     run: function(creep) {
         const source = Game.getObjectById('5bbcafd29099fc012e63b3e3');
-        const link = Game.getObjectById('5e5f1435ffca371d3f44b1d5');
+        const link = Game.getObjectById('5e6e11e49aa74ee2fe6896a7');
         const container = Game.getObjectById('5e4300d9a65a34014e3984ce');
 
         if(creep.pos.isEqualTo(6, 37)){

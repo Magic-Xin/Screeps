@@ -1,24 +1,35 @@
-var roleSpawn = {
+let structureSpawn = {
     run: function(){
         const mineral = Game.getObjectById('5bbcb69ad867df5e542079f5');
 
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
         var uharvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'uharvester');
-        var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
-        var htransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'htransfer')
-        var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
-        var mharvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'mharvester')
-        var mtransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'mtransfer')
-        var CStarget = mineral.room.find(FIND_CONSTRUCTION_SITES);
+        var aharvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'aharvester');
+        var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+        var aupgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'aupgrader');
+        var htransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'htransfer');
+        var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+        var mharvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'mharvester');
+        var mtransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'mtransfer');
+        var ttransfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'ttransfer');
+        var transfers = _.filter(Game.creeps, (creep) => creep.memory.role == 'transfer');
 
         _.forEach(Game.spawns, function(spawn){
-            if(!spawn.spawning && spawn.room.energyAvailable >= 1250){
-                if(spawn.name == 'Spawn0'){
+            var CStarget = spawn.room.find(FIND_CONSTRUCTION_SITES);
+            if(!spawn.spawning){
+                if(spawn.name == 'Spawn0' && spawn.room.energyAvailable >= 1250){
                     if(harvesters.length < 1) {
                         var HnewName = 'Harvester' + Game.time;
                         console.log('Spawning new harvester: ' + HnewName);
                         spawn.spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,MOVE,MOVE,MOVE,MOVE,MOVE], HnewName,
                             {memory: {role: 'harvester'}});
+                    }
+
+                    else if(transfers.length < 1) {
+                        var TnewName = 'Transfer' + Game.time;
+                        console.log('Spawning new ttransfer: ' + TnewName);
+                        spawn.spawnCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], TnewName,
+                            {memory: {role: 'transfer'}});
                     }
 
                     else if(htransfers.length < 1) {
@@ -34,8 +45,15 @@ var roleSpawn = {
                         spawn.spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], UHnewName,
                             {memory: {role: 'uharvester'}});
                     }
+
+                    else if(ttransfers.length < 0) {
+                        var TTnewName = 'TTransfer' + Game.time;
+                        console.log('Spawning new ttransfer: ' + TTnewName);
+                        spawn.spawnCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], TTnewName,
+                            {memory: {role: 'ttransfer'}});
+                    }
                 }
-                else if(spawn.name == 'Spawn1'){
+                else if(spawn.name == 'Spawn1' && spawn.room.energyAvailable >= 1250){
                     if(mineral.mineralAmount > 0){
                         if(upgraders.length < 1) {
                             var UnewName = 'Upgrader' + Game.time;
@@ -66,11 +84,25 @@ var roleSpawn = {
                             {memory: {role: 'upgrader'}});
                     }
 
-                    else if(CStarget.length && builders.length < 2) {
+                    if(builders.length < 2) {
                         var BnewName = 'Builder' + Game.time;
                         console.log('Spawning new builder: ' + BnewName);
                         spawn.spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], BnewName,
                             {memory: {role: 'builder'}});
+                    }
+                }
+                else if(spawn.name == 'Spawn2' && spawn.room.energyAvailable >= 200){
+                    if(aharvesters.length < 2){
+                        var AHnewName = 'AHarvester' + Game.time;
+                        console.log('Spawning new aharvester: ' + AHnewName);
+                        spawn.spawnCreep([WORK,CARRY,MOVE], AHnewName,
+                            {memory: {role: 'aharvester'}});
+                    }
+                    else if(aupgraders.length < 2){
+                        var AUnewName = 'AUpgrader' + Game.time;
+                        console.log('Spawning new apugrader: ' + AUnewName);
+                        spawn.spawnCreep([WORK,CARRY,MOVE], AUnewName,
+                            {memory: {role: 'aupgrader'}});
                     }
                 }
             }//自动化spawning
@@ -87,4 +119,4 @@ var roleSpawn = {
     }
 }
 
-module.exports = roleSpawn;
+module.exports = structureSpawn;

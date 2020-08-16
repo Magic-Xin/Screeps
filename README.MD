@@ -4,19 +4,19 @@
 
 ### 对比V3.0：
 
-1. 模块化Spawn和Tower，精简main.js
+1. 模块化Spawn\Tower\Link\Clean，精简main.js
 
 2. Spawn分工，UHarvester与Harvester矿床互换
 
+3. 增加TTransfer，负责交易区的资源调动
+
 ### TODO
 
-1. Terminal模块，负责市场交易
+1. Terminal模块，自动化市场交易
 
 2. Lab模块，负责矿物合成
 
 3. Tombstone和掉落RESOURCE回收
-
-4. 进一步模块化Clean和Link
 
 ### 过往版本链接：
 

@@ -1,4 +1,4 @@
-var roleTower = {
+let structureTower = {
     run: function(){
         var towers = Game.spawns['Spawn1'].room.find(FIND_MY_STRUCTURES, {
             filter: { structureType: STRUCTURE_TOWER }
@@ -32,4 +32,4 @@ var roleTower = {
     }
 }
 
-module.exports = roleTower;
+module.exports = structureTower;

@@ -1,4 +1,4 @@
-var roleHarvester = {
+let roleHarvester = {
 
     run: function(creep) {
         const source = Game.getObjectById('5bbcafd29099fc012e63b3e2')
